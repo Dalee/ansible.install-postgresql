@@ -9,7 +9,7 @@
 
 - name: bashd - put profile environment
   template:
-    src: "psql.rc"
+    src: "psql.rc.j2"
     dest: "/etc/bash.d/psql.rc"
     mode: 0644
     owner: "root"
