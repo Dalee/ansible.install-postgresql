@@ -1,0 +1,16 @@
+galaxy_info:
+  author: "Dalee Dev"
+  company: Dalee
+  license: BSD
+  description: "PostgreSQL 9.5, development and test database configuration"
+  min_ansible_version: 1.4
+  platforms:
+   - name: Debian
+     versions:
+      - jessie
+   - name: Ubuntu
+     versions:
+      - trusty
+  categories:
+   - system
+dependencies: []
