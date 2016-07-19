@@ -1,0 +1,9 @@
+#
+- name: postgresql - ensure psycopg2 module is installed
+  apt:
+    name: "python-psycopg2"
+    state: "present"
+
+- include: install.yml
+- include: setup.yml
+- include: bashd.yml

@@ -1,0 +1,16 @@
+#
+- name: bashd - check bash.d directory exists
+  file:
+    path: "/etc/bash.d"
+    state: "directory"
+    mode: 0755
+    owner: "root"
+    group: "root"
+
+- name: bashd - put profile environment
+  template:
+    src: "psql.rc"
+    dest: "/etc/bash.d/psql.rc"
+    mode: 0644
+    owner: "root"
+    group: "root"

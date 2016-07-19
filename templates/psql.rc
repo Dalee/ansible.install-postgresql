@@ -1,0 +1,8 @@
+# {{ ansible_managed }}
+export PGUSER="{{ psql.user }}"
+export PGHOST="{{ psql.host }}
+export PGNAME="{{ psql.development_db }}"
+
+#
+export DEVELOPMENT_DB="{{ psql.development_db }}"
+export TEST_DB="{{ psql.test_db }}"

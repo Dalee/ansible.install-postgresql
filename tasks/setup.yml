@@ -1,0 +1,43 @@
+#
+- name: postgresql - setup .pgpass
+  template:
+    src: "pgpass.j2"
+    dest: "/home/vagrant/.pgpass"
+    mode: 0600
+    owner: "vagrant"
+    group: "vagrant"
+
+- name: postgresql - set up project database (dev)
+  become: yes
+  become_user: postgres
+  postgresql_db:
+    name: "{{ psql.development_db }}"
+    encoding: "utf-8"
+
+- name: postgresql - set up project database (test)
+  become: yes
+  become_user: postgres
+  postgresql_db:
+    name: "{{ psql.test_db }}"
+    encoding: "utf-8"
+
+- name: postgresql - create web user
+  become: yes
+  become_user: postgres
+  postgresql_user:
+    name: "{{ psql.user }}"
+    password: "{{ psql.password }}"
+    role_attr_flags: SUPERUSER
+
+- name: postgresql - hba
+  template:
+    src: "pg_hba.j2"
+    dest: "/etc/postgresql/9.5/main/pg_hba.conf"
+    mode: 0640
+    owner: "postgres"
+    group: "postgres"
+
+- name: postgresql - force reload
+  service:
+    name: "postgresql"
+    state: "restarted"

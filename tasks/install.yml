@@ -1,0 +1,18 @@
+# @see https://wiki.postgresql.org/wiki/Apt
+
+- name: postgresql - add repository key
+  apt_key:
+    url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
+
+- name: postgresql - add repository
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - "deb http://apt.postgresql.org/pub/repos/apt {{ ansible_lsb.codename }}-pgdg main"
+
+- name: postgresql - install
+  apt:
+    name: "postgresql-9.5"
+    state: present

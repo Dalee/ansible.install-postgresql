@@ -1,0 +1,6 @@
+psql:
+  user: web
+  password: web
+  host: localhost
+  development_db: project
+  test_db: project_test
