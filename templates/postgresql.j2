@@ -1,0 +1,44 @@
+# {{ ansible_managed }}
+#------------------------------------------------------------------------------
+# FILE LOCATIONS
+#------------------------------------------------------------------------------
+data_directory = '/var/lib/postgresql/9.5/main'			# use data in another directory
+hba_file = '/etc/postgresql/9.5/main/pg_hba.conf'		# host-based authentication file
+ident_file = '/etc/postgresql/9.5/main/pg_ident.conf'	# ident configuration file
+external_pid_file = '/var/run/postgresql/9.5-main.pid'	# write an extra PID file
+
+#------------------------------------------------------------------------------
+# CONNECTIONS AND AUTHENTICATION
+#------------------------------------------------------------------------------
+unix_socket_directories = '/var/run/postgresql'
+listen_addresses = '*'
+port = 5432
+max_connections = 100
+ssl = false
+
+#------------------------------------------------------------------------------
+# RESOURCE USAGE (except WAL)
+#------------------------------------------------------------------------------
+shared_buffers = 128MB
+dynamic_shared_memory_type = posix
+
+#------------------------------------------------------------------------------
+# LOGGING
+#------------------------------------------------------------------------------
+log_line_prefix = '%t [%p-%l] %q%u@%d '
+log_timezone = 'W-SU'
+cluster_name = '9.5/main'
+
+#------------------------------------------------------------------------------
+# CLIENT CONNECTION DEFAULTS
+#------------------------------------------------------------------------------
+datestyle = 'iso, mdy'
+timezone = 'W-SU'
+
+lc_messages = 'en_US.UTF-8'			# locale for system error message
+lc_monetary = 'en_US.UTF-8'			# locale for monetary formatting
+lc_numeric = 'en_US.UTF-8'			# locale for number formatting
+lc_time = 'en_US.UTF-8'				# locale for time formatting
+
+# default configuration for text search
+default_text_search_config = 'pg_catalog.english'
