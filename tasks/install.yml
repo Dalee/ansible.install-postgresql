@@ -14,5 +14,5 @@
 
 - name: postgresql - install
   apt:
-    name: "postgresql-9.5"
+    name: "postgresql-9.4"
     state: present

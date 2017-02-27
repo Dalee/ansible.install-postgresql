@@ -10,7 +10,7 @@
 - name: postgresql - hba
   template:
     src: "pg_hba.j2"
-    dest: "/etc/postgresql/9.5/main/pg_hba.conf"
+    dest: "/etc/postgresql/9.4/main/pg_hba.conf"
     mode: 0640
     owner: "postgres"
     group: "postgres"
@@ -18,7 +18,7 @@
 - name: postgresql - base config
   template:
     src: "postgresql.j2"
-    dest: "/etc/postgresql/9.5/main/postgresql.conf"
+    dest: "/etc/postgresql/9.4/main/postgresql.conf"
     mode: 0640
     owner: "postgres"
     group: "postgres"
