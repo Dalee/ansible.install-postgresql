@@ -6,7 +6,7 @@
 
 - include: install.yml
 - include: setup.yml
-  when: "not {{ postgresql_tools_only|default(False) }}"
+  when: "not postgresql_tools_only|default(False)"
 
 - include: bashd.yml
-  when: "not {{ postgresql_tools_only|default(False) }}"
+  when: "not postgresql_tools_only|default(False)"
